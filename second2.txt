@@ -1,0 +1,79 @@
+import matplotlib.pyplot as plt
+
+x=np.linspace(0,10,10)
+
+x
+Out[102]: 
+array([  0.        ,   1.11111111,   2.22222222,   3.33333333,
+         4.44444444,   5.55555556,   6.66666667,   7.77777778,
+         8.88888889,  10.        ])
+
+y=np.sin(x)
+
+plt.plot(x,y)
+Out[104]: [<matplotlib.lines.Line2D at 0xa41cc50>]
+
+plt.show()
+
+
+plt.xlabel('Time')
+Out[107]: <matplotlib.text.Text at 0xa306518>
+
+plt.ylabel('Value')
+Out[108]: <matplotlib.text.Text at 0xaa5a940>
+
+plt.title("Mychart")
+Out[109]: <matplotlib.text.Text at 0x49ccb00>
+
+A=pd.read_csv("data_1d.csv",header=None).as_matrix()
+x=A[:,0]
+
+y=A[:,1]
+plt.scatter(x,y)
+
+Out[128]: <matplotlib.collections.PathCollection at 0xa9d1470>
+
+plt.show()
+
+plt.hist(x)
+Out[140]: 
+(array([ 10.,   9.,   5.,  13.,  10.,  10.,   8.,  16.,  10.,   9.]),
+ array([  3.21124861,  12.88597188,  22.56069515,  32.23541842,
+         41.91014169,  51.58486496,  61.25958823,  70.9343115 ,
+         80.60903477,  90.28375804,  99.95848131]),
+ <a list of 10 Patch objects>)
+
+plt.show()
+
+df=pd.read_csv("train.csv")
+M=df.as_matrix()
+
+M.shape
+Out[148]: (42000, 785)
+
+
+# Get all elements of 0th row and starting from 1st column as 0th column is label
+im=M[0,1:]
+
+ im.shape
+Out[155]: (784,)
+
+# Reshape as 28x28
+im =im.reshape(28,28)
+
+
+plt.imshow(im)
+Out[158]: <matplotlib.image.AxesImage at 0xd021240>
+
+plt.show()
+
+plt.imshow(im,cmap='gray')
+Out[160]: <matplotlib.image.AxesImage at 0xaf47668>
+
+plt.show()
+
+plt.imshow(255-im,cmap='gray')
+Out[162]: <matplotlib.image.AxesImage at 0xc023f98>
+
+plt.show()
+
